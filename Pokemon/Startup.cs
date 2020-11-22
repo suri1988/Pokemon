@@ -44,6 +44,10 @@ namespace Pokemon
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/error");
+            }
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -54,7 +58,7 @@ namespace Pokemon
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseExceptionHandler("/error"); 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
