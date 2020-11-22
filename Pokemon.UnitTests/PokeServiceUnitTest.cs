@@ -30,14 +30,16 @@ namespace Pokemon.UnitTests
         public void TestMissingCharacteristicPokeServiceThrowsException()
         {
             var name = "test name";
+            var id = 1;
             var returnPoke = new RawPokemon();
             returnPoke.Name = name;
+            returnPoke.Id = id;
             var pokeCharacteristic = new PokemonCharacteristic();
             pokeCharacteristic = null;
             var mockRepo = new Mock<IPokemonRepository>();
             var pokeService = new PokemonService(mockRepo.Object);
             mockRepo.Setup(a => a.GetPokemon(name)).Returns(returnPoke);
-            mockRepo.Setup(a => a.GetCharacteristic(name)).Returns(pokeCharacteristic);
+            mockRepo.Setup(a => a.GetCharacteristic(id)).Returns(pokeCharacteristic);
             Assert.Throws<ApiException>(() => pokeService.GetPokemon(name));
         }
 
@@ -45,8 +47,10 @@ namespace Pokemon.UnitTests
         public void TestMissingEnglishDescriptionPokeServiceThrowsException()
         {
             var name = "test name";
+            var id = 1;
             var returnPoke = new RawPokemon();
             returnPoke.Name = name;
+            returnPoke.Id = id;
             var pokeCharacteristic = new PokemonCharacteristic();
             pokeCharacteristic.descriptions = new System.Collections.Generic.List<Description>();
             pokeCharacteristic.descriptions.Add(new Description { description = "oui francais", language = new Language { name = "fr" } });
@@ -54,7 +58,7 @@ namespace Pokemon.UnitTests
             var mockRepo = new Mock<IPokemonRepository>();
             var pokeService = new PokemonService(mockRepo.Object);
             mockRepo.Setup(a => a.GetPokemon(name)).Returns(returnPoke);
-            mockRepo.Setup(a => a.GetCharacteristic(name)).Returns(pokeCharacteristic);
+            mockRepo.Setup(a => a.GetCharacteristic(id)).Returns(pokeCharacteristic);
 
             Assert.Throws<ApiException>(() => pokeService.GetPokemon(name));
         }

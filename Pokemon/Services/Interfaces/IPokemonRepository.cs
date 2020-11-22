@@ -5,7 +5,7 @@ namespace Pokemon.Services.Interfaces
 {
     public interface IPokemonRepository
     {
-        public PokemonCharacteristic GetCharacteristic(string name);
+        public PokemonCharacteristic GetCharacteristic(int id);
         public RawPokemon GetPokemon(string name);
     }
 }
