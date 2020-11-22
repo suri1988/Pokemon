@@ -4,40 +4,33 @@ using Newtonsoft.Json;
 
 namespace Pokemon.Models
 {
-    public partial class PokemonCharacteristic
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
+    public class Language
     {
-        [JsonProperty("id")]
-        public long Id { get; set; }
-
-        [JsonProperty("gene_modulo")]
-        public long GeneModulo { get; set; }
-
-        [JsonProperty("possible_values")]
-        public long[] PossibleValues { get; set; }
-
-        [JsonProperty("highest_stat")]
-        public HighestStat HighestStat { get; set; }
-
-        [JsonProperty("descriptions")]
-        public Description[] Descriptions { get; set; }
+        public string name { get; set; }
+        public string url { get; set; }
     }
 
-    public partial class Description
+    public class Description
     {
-        [JsonProperty("description")]
-        public string DescriptionText { get; set; }
-
-        [JsonProperty("language")]
-        public HighestStat Language { get; set; }
+        public string description { get; set; }
+        public Language language { get; set; }
     }
 
-    public partial class HighestStat
+    public class HighestStat
     {
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        [JsonProperty("url")]
-        public Uri Url { get; set; }
+        public string name { get; set; }
+        public string url { get; set; }
     }
+
+    public class PokemonCharacteristic
+    {
+        public List<Description> descriptions { get; set; }
+        public int gene_modulo { get; set; }
+        public HighestStat highest_stat { get; set; }
+        public int id { get; set; }
+        public List<int> possible_values { get; set; }
+    }
+
 
 }

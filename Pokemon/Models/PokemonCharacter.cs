@@ -12,7 +12,14 @@ namespace Pokemon.Models
             this.description = description;
         }
 
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Name
+        {
+            get { return name; }
+        }
+        public string Description
+        {
+            get { return description; }
+        }
     }
 }
+ 

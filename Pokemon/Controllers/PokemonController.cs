@@ -5,17 +5,30 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Pokemon.Models;
+using Pokemon.Services.Interfaces;
 
 namespace Pokemon.Controllers
 {
+    [Route("api/Pokemon")]
     [ApiController]
-    [Route("[controller]")]
     public class PokemonController : ControllerBase
     {
-        [HttpGet]
-        public PokemonCharacter Get()
+        private IPokemonService _pokemonService;
+        private ITranslationService _translationService;
+         
+        public PokemonController(IPokemonService pokemonService, ITranslationService translationService)
         {
-            return new PokemonCharacter("test name", "test description");
+            _pokemonService = pokemonService;
+            _translationService = translationService;
+        }
+
+        [HttpGet("{name}")]
+        public PokemonCharacter Get(string name)
+        {
+            var basicPokemon = _pokemonService.GetPokemon(name);
+            var translation = _translationService.GetTranslation(basicPokemon.Description);
+
+            return new PokemonCharacter(name, translation);
         }
     }
 }
