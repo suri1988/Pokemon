@@ -4,7 +4,8 @@ Pokemon repo for TrueLayer - This is a simple RESTful API, that given a valid Po
 # Sources
 - https://funtranslations.com/api/shakespeare
 - https://pokeapi.co/
-- Use of both the MS dotnetcore docs + Google for my simplified exponential backoff 
+- Use of both the MS dotnetcore docs + Google for my simplified exponential backoff + general error handling best practices
+- json to c# online tool to quickly generate c# classes for the Poke structures
 
 # Assumptions:
 - I am using the characteristic function, of the Poke API call, since that is the closest I could find to an actual description.
