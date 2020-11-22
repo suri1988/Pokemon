@@ -29,3 +29,8 @@ How to run the solution:
 The endpoint is now ready. You can access it as follows:
 curl --location --request GET 'https://localhost:5001/api/Pokemon/charizard' \
 --header 'Content-Type: application/json'
+
+Using Dockerfile:
+1) docker build git@github.com:suri1988/Pokemon.git
+2) docker images to get list of running images
+3) docker run {imageId} created from Command 1 to start a container from this image. 
