@@ -14,7 +14,7 @@ namespace Pokemon.Controllers
             var context = HttpContext.Features.Get<IExceptionHandlerFeature>();
             var exception = context?.Error; 
 
-            return new ApiException(System.Net.HttpStatusCode.NotFound, exception.Message); // Your error model
+            return new ApiException(System.Net.HttpStatusCode.NotFound, exception.Message); 
         }
     }
 }

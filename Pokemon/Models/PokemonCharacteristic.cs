@@ -4,7 +4,6 @@ using Newtonsoft.Json;
 
 namespace Pokemon.Models
 {
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class Language
     {
         public string name { get; set; }

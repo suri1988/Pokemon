@@ -1,7 +1,6 @@
 ﻿using System;
 namespace Pokemon.Models
 {
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class Success
     {
         public int total { get; set; }
