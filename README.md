@@ -16,7 +16,7 @@ Areas for Improvement:
 - The free version of the Shakespearan API limits API requests, so ideally I would be checking for a 429 response code, and implmenting some sort of wait/retry mechanism,
 before making the next call
 - Since there is no complicated controller logic, I don't have integration tests, but rather focused on the service layer where all the logic is situated
-- Adding error codes to the exception handling will make for better unit testing
+- Honestly a bit rusty with dotnetcore error handling - definitely can be cleaned up
 
 How to run the solution:
 - Install dotnetcore: https://dotnet.microsoft.com/download
